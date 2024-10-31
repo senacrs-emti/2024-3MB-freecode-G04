@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1 align="center">🎮CodeLand 🎮</h1>
+<h1 align="center">🧙 CodeLand 🧙</h1>
 <br>
 <img src="https://s10.aconvert.com/convert/p3r68-cdx67/aeri8-gbmrt.jpg">
 
