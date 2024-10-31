@@ -18,7 +18,7 @@
 </ul>
 
 <h1 align="center">💻Tecnologias Utilizadas💻</h1>
-<br>
+<br><br>
 <ul>
     <p align="center><strong>HTML5:</strong> Estruturação do jogo e elementos visuais.</p>
     <p align="center><strong>CSS3:</strong> Estilização dos gráficos e design responsivo.</li></p>
