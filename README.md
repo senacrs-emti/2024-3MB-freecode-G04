@@ -19,7 +19,7 @@
 </ul>
 
 <h1 align="center">💻Tecnologias Utilizadas💻</h1>
-<br><br>
+<br>
 <ul>
     <p align="center"><strong>GODOT: </strong> Game Engine open source com GDScript, C# e C++</li></p>
     <p align="center"><strong>Aseprite: </strong>Editor de imagens para desenhos estilo Pixel Art</p>
