@@ -12,12 +12,11 @@
 <h1 align="center">⚙️Funcionalidades⚙️</h1>
 <br>
 <ul>
-    <p> align="center"<strong>Gráficos Retro:</strong> Visual nostálgico com design inspirado nos jogos clássicos.</li></p>
-    <p> align="center"<strong>Gráficos Retro:</strong> <strong>Controles Suaves:</strong> Mecânicas responsivas para uma experiência de jogo fluida.</li></p>
-    <p> align="center"<strong>Gráficos Retro:</strong>Sistema de pontuação. </li></p>
-    <li align="center"><strong>Controles Suaves:</strong> Mecânicas responsivas para uma experiência de jogo fluida.</li>
-    <li align="center"><strong>Pontuação:</strong> Sistema de pontuação.</li>
-    <li align="center"><strong>Som e Música:</strong> Efeitos sonoros e trilha sonora autoral.</li>
+    <p align="center"<strong>Gráficos Retro:</strong> Visual nostálgico com design inspirado nos jogos clássicos.</li></p>
+    <p align="center"<strong>Controles Suaves:</strong> Mecânicas responsivas para uma experiência de jogo fluida.</li></p>
+    <p align="center"<strong>Gráficos Retro:</strong>Sistema de pontuação. </li></p>
+    <p align="center"<strong>Pontuação:</strong> Sistema de pontuação. </li></p><strong>Pontuação:</strong> Sistema de pontuação.
+    <p align="center"><strong>Som e Música:</strong> Efeitos sonoros e trilha sonora autoral.</p>
 </ul>
 
 <h1 align="center">💻Tecnologias Utilizadas💻</h1>
