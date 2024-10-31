@@ -12,10 +12,10 @@
 <h1 align="center">⚙️Funcionalidades⚙️</h1>
 <br>
 <ul>
-    <li><strong>Gráficos Retro:</strong> Visual nostálgico com design inspirado nos jogos clássicos.</li>
-    <li><strong>Controles Suaves:</strong> Mecânicas responsivas para uma experiência de jogo fluida.</li>
-    <li><strong>Pontuação:</strong> Sistema de pontuação.</li>
-    <li><strong>Som e Música:</strong> Efeitos sonoros e trilha sonora autoral.</li>
+    <li align="center"><strong>Gráficos Retro:</strong> Visual nostálgico com design inspirado nos jogos clássicos.</li>
+    <li align="center"><strong>Controles Suaves:</strong> Mecânicas responsivas para uma experiência de jogo fluida.</li>
+    <li align="center"><strong>Pontuação:</strong> Sistema de pontuação.</li>
+    <li align="center"><strong>Som e Música:</strong> Efeitos sonoros e trilha sonora autoral.</li>
 </ul>
 
 <h1 align="center">💻Tecnologias Utilizadas💻</h1>
