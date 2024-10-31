@@ -20,9 +20,9 @@
 <h1 align="center">💻Tecnologias Utilizadas💻</h1>
 <br>
 <ul>
-    <li><strong>HTML5:</strong> Estruturação do jogo e elementos visuais.</li>
-    <li><strong>CSS3:</strong> Estilização dos gráficos e design responsivo.</li>
-    <li><strong>JavaScript:</strong> Godot </li>
+    <p align="center><strong>HTML5:</strong> Estruturação do jogo e elementos visuais.</p>
+    <p align="center><strong>CSS3:</strong> Estilização dos gráficos e design responsivo.</li></p>
+    <p align="center><strong>JavaScript:</strong> Godot </li></p>
 </ul>
 
 <h1 align="center">🎮Como Jogar🎮</h1>
