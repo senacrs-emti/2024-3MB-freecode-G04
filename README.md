@@ -10,7 +10,7 @@
 <br>
 <h1 align="center">Descrição</h1>
 <br>
-<p>CodeLand, uma experiência divertida</p>
+<p align="center">CodeLand, uma experiência divertida</p>
 
 <h1 align="center">⚙️Funcionalidades⚙️</h1>
 <br>
