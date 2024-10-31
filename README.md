@@ -27,7 +27,7 @@
 <h1 align="center">🎮Como Jogar🎮</h1>
 <br>
 <ol>
-    <p align="center"> Clone este repositório: <code>git clone https://github.com/usuario/Top-Rush.git</code></p>
+    <p align="center"> Baixe o repositório: <code>git clone https://github.com/usuario/Top-Rush.git</code></p>
     <p align="center">Navegue até o diretório do jogo: <code>cd top-rush</code></p>
     <p align="center">Abra o arquivo <code>index.html</code> em seu navegador preferido para começar a jogar.</p>
 </ol>
