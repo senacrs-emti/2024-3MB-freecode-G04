@@ -27,9 +27,10 @@
 <h1 align="center">🎮Como Jogar🎮</h1>
 <br>
 <ol>
-    <p align="center"> Baixe o repositório: <code>git clone https://github.com/usuario/Top-Rush.git</code></p>
-    <p align="center">Navegue até o diretório do jogo: <code>cd top-rush</code></p>
-    <p align="center">Abra o arquivo <code>index.html</code> em seu navegador preferido para começar a jogar.</p>
+    <p align="center"> Baixe o repositório: <code>https://github.com/senacrs-emti/2024-3MB-freecode-G04</code></p>
+    <p align="center">Abra o GODOT</p>
+    <p align="center"> Abra o projeto.zip></p>
+    <p align="center">Clique em executar <code>index.html</code> Godot/Execute▶️</p>
 </ol>
 
 <h1 align="center">🤝Contribuição🤝</h1>
