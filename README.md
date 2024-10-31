@@ -33,15 +33,3 @@
     <p align="center"> Abra o projeto.zip></p>
     <p align="center">Clique em executar <code>Godot/Execute▶️</code></p>
 </ol>
-
-<h1 align="center">🤝Contribuição🤝</h1>
-<br>
-<p>Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests com melhorias, novas funcionalidades e correções de bugs.</p>
-<br>
-<br>
-<br>
-<img align="center" style="margin-bottom:100px; object-fit: contain" width=100% src="https://img.freepik.com/premium-photo/golden-retriever-dog-wearing-sunglasses-beach_900958-12916.jpg"/>
-&nbsp;&nbsp;&nbsp;
-<br>
-</body>
-</html>
