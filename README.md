@@ -42,8 +42,5 @@
 <img align="center" style="margin-bottom:100px; object-fit: contain" width=100% src="https://img.freepik.com/premium-photo/golden-retriever-dog-wearing-sunglasses-beach_900958-12916.jpg"/>
 &nbsp;&nbsp;&nbsp;
 <br>
-<br>
-<p>"Top-Rush" traz de volta a diversão e a adrenalina dos clássicos jogos de corrida, proporcionando horas de entretenimento para jogadores de todas as idades. Prepare-se para pisar fundo e deixar todos os adversários para trás!</p>
-
 </body>
 </html>
