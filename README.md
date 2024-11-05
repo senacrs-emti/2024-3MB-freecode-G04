@@ -31,5 +31,5 @@
     <p align="center"> Baixe o repositório: <code>https://github.com/senacrs-emti/2024-3MB-freecode-G04</code></p>
     <p align="center">Abra o GODOT</p>
     <p align="center"> Abra o <code>projeto.zip</code></p>
-    <p align="center">Clique em executar <code>Godot/Execute▶️</code></p>
+    <p align="center">Clique em executar <code>GODOT/Execute▶️</code></p>
 </ol>
