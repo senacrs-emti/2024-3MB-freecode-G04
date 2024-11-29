@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://1fhtuts27qw0"]
+
+[ext_resource type="Script" path="res://Objects/experience_gem.gd" id="1_ggtxx"]
+[ext_resource type="Texture2D" uid="uid://bhe7408nwdyns" path="res://Texturas/Items/Gems/xpGem.png" id="2_0gvfu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mxer"]
+size = Vector2(45, 37)
+
+[sub_resource type="Animation" id="Animation_yxxl3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ec4lj"]
+resource_name = "stand"
+length = 1.8
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0), Vector2i(8, 0), Vector2i(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_emohv"]
+_data = {
+"RESET": SubResource("Animation_yxxl3"),
+"stand": SubResource("Animation_ec4lj")
+}
+
+[node name="ExperienceGem" type="Area2D" groups=["loot"]]
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_ggtxx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_0gvfu")
+hframes = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_7mxer")
+
+[node name="snd_collected" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_emohv")
+}
+
+[connection signal="finished" from="snd_collected" to="." method="_on_snd_collected_finished"]

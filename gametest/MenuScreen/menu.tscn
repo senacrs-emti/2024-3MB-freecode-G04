@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://dg0q5232s6edv"]
+
+[ext_resource type="PackedScene" path="res://Utilidade/basic_button.tscn" id="1_kgq80"]
+[ext_resource type="Script" path="res://MenuScreen/menu.gd" id="1_s3j26"]
+[ext_resource type="VideoStream" path="res://Texturas/menu.ogv" id="2_d5dep"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_un1pk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iauv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6rou1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkipy"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s3j26")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+stream = ExtResource("2_d5dep")
+autoplay = true
+expand = true
+loop = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 200.0
+offset_right = 120.0
+offset_bottom = 205.0
+color = Color(0.945098, 0.847059, 0.580392, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 235.0
+offset_right = 120.0
+offset_bottom = 240.0
+color = Color(0.945098, 0.847059, 0.580392, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 270.0
+offset_right = 120.0
+offset_bottom = 275.0
+color = Color(0.945098, 0.847059, 0.580392, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0.945098, 0.847059, 0.580392, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "CODE LAND"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_play" parent="." instance=ExtResource("1_kgq80")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 194.0
+offset_right = 130.0
+offset_bottom = 244.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0.945098, 0.847059, 0.580392, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.945098, 0.847059, 0.580392, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_un1pk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5iauv")
+text = "ENTER"
+
+[node name="btn_exit" parent="." instance=ExtResource("1_kgq80")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 229.0
+offset_right = 130.0
+offset_bottom = 279.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0.945098, 0.847059, 0.580392, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0.945098, 0.847059, 0.580392, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6rou1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qkipy")
+text = "ESC"
+
+[connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]
+[connection signal="click_end" from="btn_play" to="btn_play" method="_on_click_end"]
+[connection signal="pressed" from="btn_play" to="." method="_on_btn_play_pressed"]
+[connection signal="click_end" from="btn_exit" to="." method="_on_btn_exit_click_end"]
+[connection signal="click_end" from="btn_exit" to="btn_exit" method="_on_click_end"]
+[connection signal="pressed" from="btn_exit" to="." method="_on_btn_exit_pressed"]

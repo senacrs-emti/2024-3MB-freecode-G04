@@ -1,0 +1,166 @@
+[gd_scene load_steps=30 format=3 uid="uid://cfdaaod72imwn"]
+
+[ext_resource type="Texture2D" uid="uid://be8apfmrug0se" path="res://Texturas/floor.png" id="1_d1hj3"]
+[ext_resource type="PackedScene" uid="uid://ctdv4apgops" path="res://Jogador/jogador.tscn" id="2_qaeij"]
+[ext_resource type="PackedScene" uid="uid://6i5rryhyg560" path="res://Utilidade/enemy_spawner.tscn" id="3_0hdki"]
+[ext_resource type="Script" path="res://Utilidade/spawn_info.gd" id="4_8gt27"]
+[ext_resource type="PackedScene" uid="uid://cy64cuy4ws2t1" path="res://inimigos/enemy_caveira.tscn" id="5_isk4t"]
+[ext_resource type="PackedScene" uid="uid://dibx2m2opayvl" path="res://inimigos/enemy_caramujo.tscn" id="5_pwd84"]
+[ext_resource type="PackedScene" uid="uid://dmyb2xu8eai0" path="res://inimigos/enemy_cobra.tscn" id="5_rmcho"]
+[ext_resource type="PackedScene" uid="uid://mwu7wly7ervc" path="res://inimigos/enemy_besouro.tscn" id="5_xo8u5"]
+[ext_resource type="PackedScene" uid="uid://bhxlxpayvjwsc" path="res://inimigos/enemy_fumaca.tscn" id="5_xytwv"]
+[ext_resource type="PackedScene" uid="uid://dbg5alck2ibpd" path="res://inimigos/boss_css.tscn" id="7_udg3w"]
+[ext_resource type="PackedScene" uid="uid://ce1ct6j82r80n" path="res://inimigos/boss_javascript.tscn" id="10_366io"]
+[ext_resource type="PackedScene" uid="uid://1fhtuts27qw0" path="res://Objects/experience_gem.tscn" id="12_2hj0a"]
+[ext_resource type="PackedScene" uid="uid://g2lib4h1jygx" path="res://Objects/life_soda.tscn" id="13_pkwtq"]
+
+[sub_resource type="Resource" id="Resource_4d0jm"]
+script = ExtResource("4_8gt27")
+time_start = 0
+time_end = 30
+enemy = ExtResource("5_rmcho")
+enemy_num = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_mwua5"]
+script = ExtResource("4_8gt27")
+time_start = 30
+time_end = 60
+enemy = ExtResource("5_rmcho")
+enemy_num = 2
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_iif5k"]
+script = ExtResource("4_8gt27")
+time_start = 30
+time_end = 60
+enemy = ExtResource("5_xo8u5")
+enemy_num = 1
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_5wp68"]
+script = ExtResource("4_8gt27")
+time_start = 60
+time_end = 120
+enemy = ExtResource("5_xo8u5")
+enemy_num = 2
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_6jmri"]
+script = ExtResource("4_8gt27")
+time_start = 120
+time_end = 180
+enemy = ExtResource("5_rmcho")
+enemy_num = 2
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_2m21t"]
+script = ExtResource("4_8gt27")
+time_start = 120
+time_end = 180
+enemy = ExtResource("5_xo8u5")
+enemy_num = 3
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_ph65f"]
+script = ExtResource("4_8gt27")
+time_start = 120
+time_end = 120
+enemy = ExtResource("7_udg3w")
+enemy_num = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_7wjsu"]
+script = ExtResource("4_8gt27")
+time_start = 180
+time_end = 300
+enemy = ExtResource("5_pwd84")
+enemy_num = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_7362a"]
+script = ExtResource("4_8gt27")
+time_start = 180
+time_end = 300
+enemy = ExtResource("5_isk4t")
+enemy_num = 2
+enemy_spawn_delay = 3
+
+[sub_resource type="Resource" id="Resource_w67fo"]
+script = ExtResource("4_8gt27")
+time_start = 360
+time_end = 590
+enemy = ExtResource("5_isk4t")
+enemy_num = 2
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_vrxrm"]
+script = ExtResource("4_8gt27")
+time_start = 300
+time_end = 360
+enemy = ExtResource("5_isk4t")
+enemy_num = 2
+enemy_spawn_delay = 2
+
+[sub_resource type="Resource" id="Resource_xxqf3"]
+script = ExtResource("4_8gt27")
+time_start = 300
+time_end = 300
+enemy = ExtResource("10_366io")
+enemy_num = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_1fgbl"]
+script = ExtResource("4_8gt27")
+time_start = 360
+time_end = 590
+enemy = ExtResource("5_xytwv")
+enemy_num = 1
+enemy_spawn_delay = 5
+
+[sub_resource type="Resource" id="Resource_p3mqa"]
+script = ExtResource("4_8gt27")
+time_start = 480
+time_end = 590
+enemy = ExtResource("5_rmcho")
+enemy_num = 5
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_wgnpf"]
+script = ExtResource("4_8gt27")
+time_start = 480
+time_end = 590
+enemy = ExtResource("5_xo8u5")
+enemy_num = 3
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_jk56f"]
+script = ExtResource("4_8gt27")
+time_start = 480
+time_end = 590
+enemy = ExtResource("5_pwd84")
+enemy_num = 2
+enemy_spawn_delay = 0
+
+[node name="Main" type="Node2D"]
+
+[node name="floor" type="Sprite2D" parent="."]
+texture_repeat = 2
+scale = Vector2(10, 10)
+texture = ExtResource("1_d1hj3")
+region_enabled = true
+region_rect = Rect2(0, 0, 4000, 4000)
+
+[node name="jogador" parent="." instance=ExtResource("2_qaeij")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_0hdki")]
+spawns = Array[ExtResource("4_8gt27")]([SubResource("Resource_4d0jm"), SubResource("Resource_mwua5"), SubResource("Resource_iif5k"), SubResource("Resource_5wp68"), SubResource("Resource_6jmri"), SubResource("Resource_2m21t"), SubResource("Resource_ph65f"), SubResource("Resource_7wjsu"), SubResource("Resource_7362a"), SubResource("Resource_w67fo"), SubResource("Resource_vrxrm"), SubResource("Resource_xxqf3"), SubResource("Resource_1fgbl"), SubResource("Resource_p3mqa"), SubResource("Resource_wgnpf"), SubResource("Resource_jk56f")])
+
+[node name="Loot" type="Node2D" parent="." groups=["loot"]]
+
+[node name="ExperienceGem" parent="." instance=ExtResource("12_2hj0a")]
+position = Vector2(474, -304)
+experience = 50
+
+[node name="Area2D" parent="." instance=ExtResource("13_pkwtq")]
+position = Vector2(-284, -308)

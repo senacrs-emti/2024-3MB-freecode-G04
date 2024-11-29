@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvwmq4a81xsnm"]
+
+[ext_resource type="Texture2D" uid="uid://b23kk2i7htx13" path="res://Texturas/Enemy/explosãomorte.png" id="1_c8e6j"]
+[ext_resource type="Script" path="res://inimigos/explosion.gd" id="2_6nvs4"]
+
+[sub_resource type="Animation" id="Animation_2vktb"]
+resource_name = "explode"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pp74u"]
+_data = {
+"explode": SubResource("Animation_2vktb")
+}
+
+[node name="Explosion" type="Sprite2D"]
+texture = ExtResource("1_c8e6j")
+hframes = 7
+frame = 6
+region_rect = Rect2(72, 832, 2824, 936)
+script = ExtResource("2_6nvs4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pp74u")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

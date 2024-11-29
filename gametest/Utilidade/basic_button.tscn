@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciaocokcky53"]
+
+[ext_resource type="Script" path="res://Utilidade/basic_button.gd" id="1_0gjvn"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(80, 30)
+offset_right = 8.0
+offset_bottom = 8.0
+text = "EXAMPLE"
+script = ExtResource("1_0gjvn")
+
+[node name="sdn_hover" type="AudioStreamPlayer" parent="."]
+
+[node name="sdn_click" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="finished" from="sdn_click" to="." method="_on_sdn_click_finished"]

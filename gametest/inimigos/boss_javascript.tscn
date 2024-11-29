@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://ce1ct6j82r80n"]
+
+[ext_resource type="Script" path="res://inimigos/enemy.gd" id="1_yiodh"]
+[ext_resource type="Texture2D" uid="uid://cluta8qylx851" path="res://Texturas/Enemy/bossjava.png" id="2_lmatm"]
+[ext_resource type="PackedScene" uid="uid://y8stf5kqtp5c" path="res://Utilidade/hurt_box.tscn" id="3_si31j"]
+[ext_resource type="PackedScene" uid="uid://dponpppx0g8ou" path="res://Utilidade/hit_box.tscn" id="4_3h3hn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xt7o4"]
+radius = 69.5434
+height = 335.746
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laitr"]
+radius = 177.072
+height = 422.393
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eypq5"]
+radius = 115.196
+height = 364.417
+
+[sub_resource type="Animation" id="Animation_e8mor"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_pofxc"]
+resource_name = "walk"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4bki2"]
+_data = {
+"RESET": SubResource("Animation_e8mor"),
+"walk": SubResource("Animation_pofxc")
+}
+
+[node name="enemy" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 16
+motion_mode = 1
+script = ExtResource("1_yiodh")
+movement_speed = 120.0
+healph = 200
+knockback_recovery = 9999.0
+enemy_damage = 10
+experience = 50
+is_boss = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_lmatm")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-39, -14)
+skew = -0.261799
+shape = SubResource("CapsuleShape2D_xt7o4")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_si31j")]
+collision_layer = 4
+collision_mask = 4
+HurtBoxType = 1
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+visible = false
+position = Vector2(-20, 5)
+skew = -0.261799
+shape = SubResource("CapsuleShape2D_laitr")
+
+[node name="HitBox" parent="." instance=ExtResource("4_3h3hn")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+visible = false
+position = Vector2(-22, -4)
+skew = -0.261799
+shape = SubResource("CapsuleShape2D_eypq5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4bki2")
+}
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

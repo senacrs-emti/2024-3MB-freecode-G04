@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://g2lib4h1jygx"]
+
+[ext_resource type="Script" path="res://Objects/life_soda.gd" id="1_m5spi"]
+[ext_resource type="Texture2D" uid="uid://db3q8fabhhygc" path="res://Texturas/Items/Upgrades/regenLife.png" id="1_q002y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ke2hj"]
+radius = 14.7369
+height = 65.9023
+
+[node name="Area2D" type="Area2D" groups=["loot_health"]]
+scale = Vector2(1.5, 1.5)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_m5spi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_q002y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(1, 1)
+skew = 0.240855
+shape = SubResource("CapsuleShape2D_ke2hj")
+
+[node name="snd_collected" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
