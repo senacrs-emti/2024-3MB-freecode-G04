@@ -37,6 +37,5 @@
 <h1 align="center">👁OBSERVAÇÃO👁</h1>
 <br>
 <ol>
-    <p align="center">O desenvolvimento do projeto foi feito em outro repositório, devido a certos bugs em decorrência da ausência de arquivos, por isso para ver o histórico de commits acesse esse repositório:</p>
-    <a href="https://github.com/Jujubileuu/Code-Land" align="center">https://github.com/Jujubileuu/Code-Land</a>
+    <p align="center">O desenvolvimento do projeto foi feito em outro repositório, devido a certos bugs em decorrência da ausência de arquivos, por isso para ver o histórico de commits acesse esse repositório: <a href="https://github.com/Jujubileuu/Code-Land" align="center">https://github.com/Jujubileuu/Code-Land</a> </p>
 </ol>
