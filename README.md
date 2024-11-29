@@ -33,3 +33,10 @@
     <p align="center"> Abra o <code>projeto.zip</code></p>
     <p align="center">Clique em executar <code>GODOT/Execute▶️</code></p>
 </ol>
+
+<h1 align="center">👁OBSERVAÇÃO👁</h1>
+<br>
+<ol>
+    <p align="center">o desenvolvimento do projeto foi feito em outro repositório, devido a certos bugs em decorrência da ausência de arquivos, por isso para ver o histórico de commits acesse esse repositório:</p>
+    <a href="https://github.com/Jujubileuu/Code-Land">https://github.com/Jujubileuu/Code-Land</a>
+</ol>
