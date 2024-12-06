@@ -104,7 +104,7 @@ text = "ESC"
 stream = ExtResource("5_gaumu")
 volume_db = 3.748
 autoplay = true
-parameters/looping = false
+parameters/looping = true
 
 [connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]
 [connection signal="click_end" from="btn_play" to="btn_play" method="_on_click_end"]
