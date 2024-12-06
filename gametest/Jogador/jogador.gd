@@ -474,6 +474,8 @@ func adjust_gui_collection(upgrade):
 func death():
 	deathPanel.visible = true
 	get_tree().paused = true
+	anim.play("dead")
+	await get_tree().create_timer(5).timeout
 	var tween = deathPanel.create_tween()
 	tween.tween_property(deathPanel,"modulate",Color8(255,255,255,255),5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.play()
