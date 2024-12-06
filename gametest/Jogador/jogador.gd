@@ -292,7 +292,7 @@ func calculate_experiencecap():
 	elif experience_level < 16:
 		exp_cap + 95 * (experience_level-19)*8
 	else:
-		exp_cap = 255 + (experience_level-39)*16
+		exp_cap = 255 + (experience_level-39)*10
 	return exp_cap
 
 func set_bar(set_value = 1, set_max_value = maxhealph):
