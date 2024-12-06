@@ -1,14 +1,18 @@
-[gd_scene load_steps=24 format=3 uid="uid://ctdv4apgops"]
+[gd_scene load_steps=32 format=3 uid="uid://ctdv4apgops"]
 
 [ext_resource type="Script" path="res://Jogador/jogador.gd" id="1_sqf12"]
 [ext_resource type="Texture2D" uid="uid://46ohgi2wredc" path="res://Texturas/Player/playerSprite.png" id="2_rebg4"]
 [ext_resource type="PackedScene" uid="uid://y8stf5kqtp5c" path="res://Utilidade/hurt_box.tscn" id="3_30451"]
 [ext_resource type="Texture2D" uid="uid://cdvxc4eylrdd" path="res://Texturas/GUI/exp_background - Copia.png" id="4_kdlwp"]
+[ext_resource type="Texture2D" uid="uid://cbx7na4mlgbvv" path="res://Texturas/tela boss final.png" id="4_uuayr"]
 [ext_resource type="Texture2D" uid="uid://b4ve6ephtpb7b" path="res://Texturas/GUI/exp_progress - Copia.png" id="5_armqj"]
 [ext_resource type="Texture2D" uid="uid://cwebj83ndibnb" path="res://Texturas/GUI/healthbar - Copia.png" id="6_x7xd8"]
 [ext_resource type="Texture2D" uid="uid://dx2vbyo26uyip" path="res://Texturas/GUI/health - Copia.png" id="7_t25b2"]
-[ext_resource type="PackedScene" path="res://Utilidade/basic_button.tscn" id="8_ajqeu"]
+[ext_resource type="PackedScene" uid="uid://ciaocokcky53" path="res://Utilidade/basic_button.tscn" id="8_ajqeu"]
 [ext_resource type="Texture2D" uid="uid://cv0o8a1evnf6c" path="res://Texturas/gameover.png" id="8_li8jj"]
+[ext_resource type="FontFile" uid="uid://dixtrjkh5vey" path="res://Texturas/Fonts/alagard.ttf" id="8_qjd6n"]
+[ext_resource type="Texture2D" uid="uid://lx4dp6nuga33" path="res://Texturas/telaBook.png" id="12_nw31d"]
+[ext_resource type="Texture2D" uid="uid://brxkgp33d5smp" path="res://Texturas/whitePaper.png" id="13_8ocvo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_378vh"]
 radius = 45.0
@@ -26,6 +30,8 @@ radius = 300.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xns4j"]
 radius = 50.0
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_7ljb6"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0j7do"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrif1"]
@@ -33,6 +39,12 @@ radius = 50.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w1l3k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mrs2c"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1ukwx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0benf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b6421"]
 
 [sub_resource type="Animation" id="Animation_sx08q"]
 length = 0.001
@@ -136,13 +148,47 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_ewbeq")
 
 [node name="Attack" type="Node2D" parent="."]
-visible = false
 
 [node name="FireBallTimer" type="Timer" parent="Attack"]
 wait_time = 1.5
 
 [node name="FireBallAttackTimer" type="Timer" parent="Attack/FireBallTimer"]
 wait_time = 0.075
+
+[node name="TornadoTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="TornadoAttackTimer" type="Timer" parent="Attack/TornadoTimer"]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[node name="IceTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 5.0
+
+[node name="IceAttackTimer" type="Timer" parent="Attack/IceTimer"]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[node name="VenenoTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="VenenoAttackTimer" type="Timer" parent="Attack/VenenoTimer"]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[node name="ThunderTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 10.0
+
+[node name="ThunderAttackTimer" type="Timer" parent="Attack/ThunderTimer"]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[node name="thunderBase" type="Node2D" parent="Attack"]
+unique_name_in_owner = true
 
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
 visible = false
@@ -179,6 +225,29 @@ anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 360.0
 
+[node name="BossScene" type="TextureRect" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+top_level = true
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = SubResource("CanvasTexture_7ljb6")
+
+[node name="BossImg" type="TextureRect" parent="GUILayer/GUI/BossScene"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = -3.0
+offset_right = 1032.0
+offset_bottom = 725.0
+scale = Vector2(0.62, 0.5)
+texture = ExtResource("4_uuayr")
+
 [node name="ExperienceBar" type="TextureProgressBar" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -193,6 +262,7 @@ layout_mode = 0
 offset_left = 540.0
 offset_right = 640.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("8_qjd6n")
 text = "Level: 1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -211,6 +281,7 @@ texture_progress = ExtResource("7_t25b2")
 
 [node name="HealthBarBoss" type="TextureProgressBar" parent="GUILayer/GUI"]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 0
 offset_left = 256.0
@@ -229,7 +300,9 @@ offset_left = 1.0
 offset_right = 101.0
 offset_bottom = 27.0
 scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("8_qjd6n")
 text = "BOSS"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LevelUp" type="Panel" parent="GUILayer/GUI"]
@@ -246,6 +319,8 @@ offset_bottom = 300.0
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("8_qjd6n")
+theme_override_font_sizes/font_size = 18
 text = "LEVEL UP!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -282,13 +357,11 @@ layout_mode = 0
 offset_top = 35.0
 offset_right = 640.0
 offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("8_qjd6n")
 theme_override_font_sizes/font_size = 30
 text = "RESULTADO"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="snd_victory" type="AudioStreamPlayer" parent="GUILayer/GUI/DeathPanel"]
-unique_name_in_owner = true
 
 [node name="snd_lose" type="AudioStreamPlayer" parent="GUILayer/GUI/DeathPanel"]
 unique_name_in_owner = true
@@ -300,6 +373,7 @@ offset_top = 180.0
 offset_right = 360.0
 offset_bottom = 211.0
 theme_override_colors/font_hover_color = Color(1, 1, 1, 0.607843)
+theme_override_fonts/font = ExtResource("8_qjd6n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0j7do")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_rrif1")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w1l3k")
@@ -313,6 +387,8 @@ offset_left = 280.0
 offset_top = 20.0
 offset_right = 360.0
 offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("8_qjd6n")
+theme_override_font_sizes/font_size = 20
 text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -321,19 +397,94 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
-offset_top = 40.0
+offset_top = 45.0
 offset_right = 208.0
-offset_bottom = 56.0
+offset_bottom = 61.0
+scale = Vector2(1.5, 1.5)
 columns = 10
 
 [node name="CollectedUpgrades" type="GridContainer" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 8.0
-offset_top = 40.0
+offset_top = 70.0
 offset_right = 208.0
-offset_bottom = 56.0
+offset_bottom = 86.0
+scale = Vector2(1.5, 1.5)
 columns = 10
+
+[node name="VictoryPanel" type="Panel" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="background" type="TextureRect" parent="GUILayer/GUI/VictoryPanel"]
+unique_name_in_owner = true
+self_modulate = Color(0, 0, 0, 0)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = SubResource("CanvasTexture_1ukwx")
+
+[node name="bookTexture" type="TextureRect" parent="GUILayer/GUI/VictoryPanel/background"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("12_nw31d")
+expand_mode = 2
+
+[node name="paperTexture" type="TextureRect" parent="GUILayer/GUI/VictoryPanel/background"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 132.0
+offset_right = 492.0
+offset_bottom = 360.0
+texture = ExtResource("13_8ocvo")
+expand_mode = 3
+
+[node name="history" type="Label" parent="GUILayer/GUI/VictoryPanel/background/paperTexture"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 30.0
+offset_right = 310.0
+offset_bottom = 310.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_qjd6n")
+theme_override_font_sizes/font_size = 13
+text = "	CERTIFICADO
+
+Por ter enfrentado e superado os desafios das linguagens de programação, você agora é oficialmente reconhecido como um Mestre dos Códigos. Sua habilidade de navegar por sintaxes complexas, decifrar algoritmos e dominar o reino digital é um testemunho de sua perseverança e curiosidade.
+
+Parabéns você venceu."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="btn_menuVictory" parent="GUILayer/GUI/VictoryPanel/background/paperTexture" instance=ExtResource("8_ajqeu")]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 290.0
+offset_right = 241.0
+offset_bottom = 320.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.392157)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_qjd6n")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0benf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b6421")
+text = "MENU"
+
+[node name="snd_victory" type="AudioStreamPlayer" parent="GUILayer/GUI/VictoryPanel"]
+unique_name_in_owner = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -343,10 +494,20 @@ libraries = {
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Attack/FireBallTimer" to="." method="_on_fire_ball_timer_timeout"]
 [connection signal="timeout" from="Attack/FireBallTimer/FireBallAttackTimer" to="." method="_on_fire_ball_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/TornadoTimer" to="." method="_on_tornado_timer_timeout"]
+[connection signal="timeout" from="Attack/TornadoTimer/TornadoAttackTimer" to="." method="_on_tornado_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/IceTimer" to="." method="_on_ice_timer_timeout"]
+[connection signal="timeout" from="Attack/IceTimer/IceAttackTimer" to="." method="_on_ice_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/VenenoTimer" to="." method="_on_veneno_timer_timeout"]
+[connection signal="timeout" from="Attack/VenenoTimer/VenenoAttackTimer" to="." method="_on_veneno_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/ThunderTimer" to="." method="_on_thunder_timer_timeout"]
+[connection signal="timeout" from="Attack/ThunderTimer/ThunderAttackTimer" to="." method="_on_thunder_attack_timer_timeout"]
 [connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
 [connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
 [connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
 [connection signal="pressed" from="GUILayer/GUI/DeathPanel/btn_menu" to="." method="_on_btn_menu_pressed"]
+[connection signal="click_end" from="GUILayer/GUI/VictoryPanel/background/paperTexture/btn_menuVictory" to="GUILayer/GUI/VictoryPanel/background/paperTexture/btn_menuVictory" method="_on_click_end"]
+[connection signal="pressed" from="GUILayer/GUI/VictoryPanel/background/paperTexture/btn_menuVictory" to="." method="_on_btn_menu_victory_pressed"]
 
 [editable path="HurtBox"]

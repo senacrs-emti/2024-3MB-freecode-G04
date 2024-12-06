@@ -15,7 +15,7 @@ var speed = -5
 func _ready():
 	if experience < 5:
 		sprite.self_modulate = Color8(255,255,255,255)
-	elif experience < 25:
+	elif experience < 10:
 		sprite.self_modulate = Color8(255,0,0,255)
 	else: 
 		sprite.self_modulate = Color8(0,0,0,255)

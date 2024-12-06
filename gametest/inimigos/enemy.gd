@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 @export var movement_speed = 60.0
+@export var basemovement_speed = 60.0
 @export var healph = 10
 @export var knockback_recovery = 3.5
 @export var enemy_damage = 1
 @export var experience = 1
-@export var is_boss = false  # New variable to identify if the enemy is a boss
+@export var is_boss = false
 
 var knockback = Vector2.ZERO
 
@@ -25,7 +26,8 @@ signal remove_from_array(object)
 func _ready():
 	hitBox.damage = enemy_damage
 	if is_boss:
-		print("A boss has spawned!")  # Print a message when a boss spawns
+		print("A boss has spawned!")
+	add_to_group("enemies")
 
 func _physics_process(_delta):
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
@@ -34,7 +36,7 @@ func _physics_process(_delta):
 	velocity += knockback
 	move_and_slide()
 	anim.play("walk")
-	
+
 	if direction.x > 0:
 		sprite.flip_h = true
 	elif direction.x < 0:
@@ -50,7 +52,7 @@ func death():
 	new_gem.global_position = global_position
 	new_gem.experience = experience
 	loot_base.call_deferred("add_child", new_gem)
-	var rand = RandomNumberGenerator.new().randi_range(1,50)
+	var rand = RandomNumberGenerator.new().randi_range(1, 50)
 	if rand == 1:
 		var new_regen = regen_health.instantiate()
 		new_regen.global_position = global_position
@@ -58,7 +60,7 @@ func death():
 	queue_free()
 
 func _on_hurt_box_hurt(damage, angle, knockback_amount):
-	var rand = RandomNumberGenerator.new().randi_range(0,10)
+	var rand = RandomNumberGenerator.new().randi_range(0, 10)
 	if rand <= UpgradeDb.critic_chance:
 		healph -= damage * 2
 	else:
@@ -66,5 +68,22 @@ func _on_hurt_box_hurt(damage, angle, knockback_amount):
 	knockback = angle * knockback_amount
 	if healph <= 0:
 		death()
+	else:
+		if is_boss != true and UpgradeDb.iceLevel < 4:
+			set_speed(0.0)
+			await get_tree().create_timer(UpgradeDb.stunIce).timeout
+			set_speed(basemovement_speed)
+		else:
+			set_speed(0.0)
+			await get_tree().create_timer(UpgradeDb.stunIce).timeout
+			set_speed(basemovement_speed)
 	if is_boss == true:
 		UpgradeDb.boss_health = healph
+
+func take_damage(damage):
+	healph -= damage
+	if healph <= 0:
+		death()
+
+func set_speed(value: float):
+	movement_speed = value

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ogjo7je6sqni"]
+[gd_scene load_steps=4 format=3 uid="uid://ogjo7je6sqni"]
 
 [ext_resource type="Script" path="res://Utilidade/item_option.gd" id="1_wepp7"]
 [ext_resource type="Texture2D" uid="uid://db3q8fabhhygc" path="res://Texturas/Items/Upgrades/regenLife.png" id="2_4tx63"]
+[ext_resource type="FontFile" uid="uid://dixtrjkh5vey" path="res://Texturas/Fonts/alagard.ttf" id="3_wy0l1"]
 
 [node name="ItemOption" type="ColorRect"]
 custom_minimum_size = Vector2(180, 60)
@@ -33,7 +34,8 @@ offset_left = 39.0
 offset_top = 2.0
 offset_right = 86.0
 offset_bottom = 25.0
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("3_wy0l1")
+theme_override_font_sizes/font_size = 14
 text = "Nome"
 vertical_alignment = 1
 
@@ -43,7 +45,8 @@ offset_left = 5.0
 offset_top = 27.0
 offset_right = 167.0
 offset_bottom = 48.0
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("3_wy0l1")
+theme_override_font_sizes/font_size = 10
 text = "Description of Item"
 autowrap_mode = 3
 
@@ -53,8 +56,11 @@ offset_left = 130.0
 offset_top = 3.0
 offset_right = 174.0
 offset_bottom = 26.0
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("3_wy0l1")
+theme_override_font_sizes/font_size = 13
 text = "Level: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

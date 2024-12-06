@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cfdaaod72imwn"]
+[gd_scene load_steps=28 format=3 uid="uid://cfdaaod72imwn"]
 
 [ext_resource type="Texture2D" uid="uid://be8apfmrug0se" path="res://Texturas/floor.png" id="1_d1hj3"]
 [ext_resource type="PackedScene" uid="uid://ctdv4apgops" path="res://Jogador/jogador.tscn" id="2_qaeij"]
@@ -11,23 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://bhxlxpayvjwsc" path="res://inimigos/enemy_fumaca.tscn" id="5_xytwv"]
 [ext_resource type="PackedScene" uid="uid://dbg5alck2ibpd" path="res://inimigos/boss_css.tscn" id="7_udg3w"]
 [ext_resource type="PackedScene" uid="uid://ce1ct6j82r80n" path="res://inimigos/boss_javascript.tscn" id="10_366io"]
-[ext_resource type="PackedScene" uid="uid://1fhtuts27qw0" path="res://Objects/experience_gem.tscn" id="12_2hj0a"]
-[ext_resource type="PackedScene" uid="uid://g2lib4h1jygx" path="res://Objects/life_soda.tscn" id="13_pkwtq"]
+[ext_resource type="PackedScene" uid="uid://diyo2rn3mnbjn" path="res://inimigos/finalboss_php.tscn" id="12_ge37c"]
+[ext_resource type="AudioStream" uid="uid://dxnqp4xl6fe13" path="res://audio-editor-output (4).mp3" id="13_hgs25"]
 
 [sub_resource type="Resource" id="Resource_4d0jm"]
 script = ExtResource("4_8gt27")
 time_start = 0
-time_end = 30
-enemy = ExtResource("5_rmcho")
-enemy_num = 1
-enemy_spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_mwua5"]
-script = ExtResource("4_8gt27")
-time_start = 30
 time_end = 60
 enemy = ExtResource("5_rmcho")
-enemy_num = 2
+enemy_num = 1
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_iif5k"]
@@ -43,15 +35,7 @@ script = ExtResource("4_8gt27")
 time_start = 60
 time_end = 120
 enemy = ExtResource("5_xo8u5")
-enemy_num = 2
-enemy_spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_6jmri"]
-script = ExtResource("4_8gt27")
-time_start = 120
-time_end = 180
-enemy = ExtResource("5_rmcho")
-enemy_num = 2
+enemy_num = 1
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_2m21t"]
@@ -59,7 +43,7 @@ script = ExtResource("4_8gt27")
 time_start = 120
 time_end = 180
 enemy = ExtResource("5_xo8u5")
-enemy_num = 3
+enemy_num = 2
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_ph65f"]
@@ -84,62 +68,62 @@ time_start = 180
 time_end = 300
 enemy = ExtResource("5_isk4t")
 enemy_num = 2
-enemy_spawn_delay = 3
-
-[sub_resource type="Resource" id="Resource_w67fo"]
-script = ExtResource("4_8gt27")
-time_start = 360
-time_end = 590
-enemy = ExtResource("5_isk4t")
-enemy_num = 2
-enemy_spawn_delay = 1
-
-[sub_resource type="Resource" id="Resource_vrxrm"]
-script = ExtResource("4_8gt27")
-time_start = 300
-time_end = 360
-enemy = ExtResource("5_isk4t")
-enemy_num = 2
 enemy_spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_xxqf3"]
 script = ExtResource("4_8gt27")
-time_start = 300
-time_end = 300
+time_start = 280
+time_end = 280
 enemy = ExtResource("10_366io")
 enemy_num = 1
 enemy_spawn_delay = 0
 
+[sub_resource type="Resource" id="Resource_vrxrm"]
+script = ExtResource("4_8gt27")
+time_start = 280
+time_end = 340
+enemy = ExtResource("5_isk4t")
+enemy_num = 2
+enemy_spawn_delay = 1
+
 [sub_resource type="Resource" id="Resource_1fgbl"]
 script = ExtResource("4_8gt27")
-time_start = 360
-time_end = 590
+time_start = 300
+time_end = 340
 enemy = ExtResource("5_xytwv")
 enemy_num = 1
-enemy_spawn_delay = 5
+enemy_spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_p3mqa"]
 script = ExtResource("4_8gt27")
-time_start = 480
-time_end = 590
+time_start = 300
+time_end = 340
 enemy = ExtResource("5_rmcho")
-enemy_num = 5
+enemy_num = 4
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_wgnpf"]
 script = ExtResource("4_8gt27")
-time_start = 480
-time_end = 590
+time_start = 300
+time_end = 340
 enemy = ExtResource("5_xo8u5")
 enemy_num = 3
 enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_jk56f"]
 script = ExtResource("4_8gt27")
-time_start = 480
-time_end = 590
+time_start = 300
+time_end = 340
 enemy = ExtResource("5_pwd84")
 enemy_num = 2
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_cvpdk"]
+script = ExtResource("4_8gt27")
+time_start = 360
+time_end = 360
+enemy = ExtResource("12_ge37c")
+enemy_num = 1
 enemy_spawn_delay = 0
 
 [node name="Main" type="Node2D"]
@@ -149,18 +133,16 @@ texture_repeat = 2
 scale = Vector2(10, 10)
 texture = ExtResource("1_d1hj3")
 region_enabled = true
-region_rect = Rect2(0, 0, 4000, 4000)
+region_rect = Rect2(0, -5056, 10000, 10000)
 
 [node name="jogador" parent="." instance=ExtResource("2_qaeij")]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_0hdki")]
-spawns = Array[ExtResource("4_8gt27")]([SubResource("Resource_4d0jm"), SubResource("Resource_mwua5"), SubResource("Resource_iif5k"), SubResource("Resource_5wp68"), SubResource("Resource_6jmri"), SubResource("Resource_2m21t"), SubResource("Resource_ph65f"), SubResource("Resource_7wjsu"), SubResource("Resource_7362a"), SubResource("Resource_w67fo"), SubResource("Resource_vrxrm"), SubResource("Resource_xxqf3"), SubResource("Resource_1fgbl"), SubResource("Resource_p3mqa"), SubResource("Resource_wgnpf"), SubResource("Resource_jk56f")])
+spawns = Array[ExtResource("4_8gt27")]([SubResource("Resource_4d0jm"), SubResource("Resource_iif5k"), SubResource("Resource_5wp68"), SubResource("Resource_2m21t"), SubResource("Resource_ph65f"), SubResource("Resource_7wjsu"), SubResource("Resource_7362a"), SubResource("Resource_xxqf3"), SubResource("Resource_vrxrm"), SubResource("Resource_1fgbl"), SubResource("Resource_p3mqa"), SubResource("Resource_wgnpf"), SubResource("Resource_jk56f"), SubResource("Resource_cvpdk")])
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 
-[node name="ExperienceGem" parent="." instance=ExtResource("12_2hj0a")]
-position = Vector2(474, -304)
-experience = 50
-
-[node name="Area2D" parent="." instance=ExtResource("13_pkwtq")]
-position = Vector2(-284, -308)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_hgs25")
+autoplay = true
+parameters/looping = true

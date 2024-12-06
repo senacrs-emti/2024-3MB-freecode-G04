@@ -1,6 +1,6 @@
 extends Control
 
-var level = "res://main.tscn"
+var level = "res://MenuScreen/history_scene.tscn"
 
 func _ready():
 	pass

@@ -60,6 +60,7 @@ collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_ixgpw")
 movement_speed = 80.0
+basemovement_speed = 80.0
 healph = 15
 enemy_damage = 2
 experience = 2

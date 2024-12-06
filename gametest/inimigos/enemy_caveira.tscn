@@ -59,10 +59,11 @@ collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_s1hjw")
 movement_speed = 250.0
+basemovement_speed = 250.0
 healph = 50
 knockback_recovery = 0.0
 enemy_damage = 5
-experience = 10
+experience = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

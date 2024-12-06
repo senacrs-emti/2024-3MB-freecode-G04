@@ -1,0 +1,155 @@
+[gd_scene load_steps=14 format=3 uid="uid://diyo2rn3mnbjn"]
+
+[ext_resource type="Script" path="res://inimigos/finalboss_php.gd" id="1_u6kkq"]
+[ext_resource type="Texture2D" uid="uid://c40y2mne84le6" path="res://Texturas/Enemy/patasPHP.png" id="2_4aoag"]
+[ext_resource type="PackedScene" uid="uid://y8stf5kqtp5c" path="res://Utilidade/hurt_box.tscn" id="3_6mqge"]
+[ext_resource type="PackedScene" uid="uid://dponpppx0g8ou" path="res://Utilidade/hit_box.tscn" id="4_t0ik5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xt7o4"]
+radius = 69.5434
+height = 335.746
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sl8c"]
+size = Vector2(443, 734.25)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eypq5"]
+radius = 200.0
+height = 400.0
+
+[sub_resource type="Animation" id="Animation_bog87"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_jwquy"]
+resource_name = "getUp"
+length = 0.6
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_cvvpg"]
+resource_name = "stomp"
+length = 3.0
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.02, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_n8kil"]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_607uu"]
+_data = {
+"RESET": SubResource("Animation_bog87"),
+"getUp": SubResource("Animation_jwquy"),
+"stomp": SubResource("Animation_cvvpg"),
+"walk": SubResource("Animation_n8kil")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tvlpq"]
+radius = 151.0
+height = 329.0
+
+[node name="enemy" type="CharacterBody2D" groups=["player"]]
+z_index = 10
+scale = Vector2(4, 4)
+collision_layer = 16
+collision_mask = 16
+motion_mode = 1
+script = ExtResource("1_u6kkq")
+movement_speed = 150.0
+basemovement_speed = 150.0
+healph = 1000
+enemy_damage = 15
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -90)
+scale = Vector2(2, 3)
+texture = ExtResource("2_4aoag")
+hframes = 4
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.5, 7.5)
+shape = SubResource("CapsuleShape2D_xt7o4")
+disabled = true
+
+[node name="HurtBox" parent="." instance=ExtResource("3_6mqge")]
+collision_layer = 4
+collision_mask = 4
+HurtBoxType = 1
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+visible = false
+position = Vector2(-0.75, -102.125)
+shape = SubResource("RectangleShape2D_6sl8c")
+disabled = true
+
+[node name="HitBox" parent="." instance=ExtResource("4_t0ik5")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+visible = false
+position = Vector2(-0.5, 39)
+shape = SubResource("CapsuleShape2D_eypq5")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_607uu")
+}
+
+[node name="StompArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea"]
+position = Vector2(3, 37.5)
+shape = SubResource("CapsuleShape2D_tvlpq")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

@@ -1,0 +1,158 @@
+[gd_scene load_steps=13 format=3 uid="uid://c5dstjygwg1ub"]
+
+[ext_resource type="Texture2D" uid="uid://lx4dp6nuga33" path="res://Texturas/telaBook.png" id="1_5bg81"]
+[ext_resource type="Script" path="res://MenuScreen/history_scene.gd" id="1_ru0og"]
+[ext_resource type="Texture2D" uid="uid://brxkgp33d5smp" path="res://Texturas/whitePaper.png" id="2_56mwh"]
+[ext_resource type="FontFile" uid="uid://dixtrjkh5vey" path="res://Texturas/Fonts/alagard.ttf" id="4_aq7ai"]
+[ext_resource type="PackedScene" uid="uid://ciaocokcky53" path="res://Utilidade/basic_button.tscn" id="5_xdpmp"]
+[ext_resource type="AudioStream" uid="uid://cf6rr1wh8ikip" path="res://introgame.mp3" id="6_1o0os"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_j474h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vvae"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr3nn"]
+
+[sub_resource type="Animation" id="Animation_nh1g7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background/bookTexture/btn_Ler:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("background/paperTexture/btn_Jogar:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jptvy"]
+resource_name = "btnStand"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("background/bookTexture/btn_Ler:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1), Color(1, 1, 1, 0.392157)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlbkt"]
+_data = {
+"RESET": SubResource("Animation_nh1g7"),
+"btnStand": SubResource("Animation_jptvy")
+}
+
+[node name="historyScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ru0og")
+
+[node name="background" type="TextureRect" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = SubResource("CanvasTexture_j474h")
+
+[node name="bookTexture" type="TextureRect" parent="background"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("1_5bg81")
+expand_mode = 2
+
+[node name="btn_Ler" parent="background/bookTexture" instance=ExtResource("5_xdpmp")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 250.0
+offset_top = 150.0
+offset_right = 370.0
+offset_bottom = 200.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_aq7ai")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6vvae")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vr3nn")
+text = "LER"
+
+[node name="paperTexture" type="TextureRect" parent="background"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 132.0
+offset_right = 492.0
+offset_bottom = 360.0
+texture = ExtResource("2_56mwh")
+expand_mode = 3
+
+[node name="history" type="Label" parent="background/paperTexture"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 30.0
+offset_right = 310.0
+offset_bottom = 310.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_aq7ai")
+theme_override_font_sizes/font_size = 13
+text = "No reino de Cainhurst, onde a memória e o código fluem como rios de dados, você desperta como um Aprendiz Arcano, envolto em trevas digitais. A ruína do Códex Antigo deu origem a abominações de sintaxe e espectros de bugs, corrompendo o equilíbrio do Sistema. Munido apenas de um grimório de algoritmos esquecidos, você deve enfrentar as linguagens de programação amaldiçoadas, cada uma guardando fragmentos do Códex perdido. No ápice do Error 404, o Escolhido, enfrenta as aberrações que o Códex Antigo gerou."
+autowrap_mode = 3
+
+[node name="btn_Jogar" parent="background/paperTexture" instance=ExtResource("5_xdpmp")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 121.0
+offset_top = 310.0
+offset_right = 241.0
+offset_bottom = 340.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0.392157)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_aq7ai")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6vvae")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vr3nn")
+text = "CODAR"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jlbkt")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_1o0os")
+autoplay = true
+parameters/looping = false
+
+[connection signal="click_end" from="background/bookTexture/btn_Ler" to="background/bookTexture/btn_Ler" method="_on_click_end"]
+[connection signal="pressed" from="background/bookTexture/btn_Ler" to="." method="_on_btn_ler_pressed"]
+[connection signal="click_end" from="background/paperTexture/btn_Jogar" to="background/paperTexture/btn_Jogar" method="_on_click_end"]
+[connection signal="pressed" from="background/paperTexture/btn_Jogar" to="." method="_on_btn_jogar_pressed"]
